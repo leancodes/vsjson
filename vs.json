@@ -1,0 +1,273 @@
+{
+    "workbench.colorCustomizations": {
+        "editor.background": "#1a1b26",
+        "editor.foreground": "#C0CAF5",
+        "editorCursor.foreground": "#73DACA",
+        "editor.lineHighlightBackground": "#24283b",
+        "editor.lineHighlightBorder": "#414868",
+        "editor.selectionBackground": "#2f4266",
+        "editor.selectionHighlightBackground": "#24283b",
+        "editor.inactiveSelectionBackground": "#2f426644",
+        "editorGutter.background": "#1a1b26",
+        "editorGutter.foldingControlForeground": "#7AA2F7",
+        "sideBar.background": "#1a1b26",
+        "sideBar.foreground": "#C0CAF5",
+        "activityBar.background": "#1a1b26",
+        "activityBar.foreground": "#7AA2F7",
+        "statusBar.background": "#24283b",
+        "statusBar.foreground": "#9ECE6A",
+        "terminal.background": "#1a1b26",
+        "terminal.foreground": "#C0CAF5",
+        "terminalCursor.foreground": "#73DACA",
+        "terminal.ansiBrightBlue": "#7AA2F7",
+        "terminal.ansiBrightGreen": "#9ECE6A",
+        "notebook.cellBorderColor": "#7DCFFF",
+        "notebook.cellEditorBackground": "#23232b",
+        "notebook.outputContainerBackgroundColor": "#1a1b26",
+        "notebook.outputContainerBorderColor": "#7AA2F7",
+        "editorInlayHint.foreground": "#88AAAA",
+        "editorInlayHint.background": "#24283b",
+        "editorBracketHighlight.foreground1": "#7AA2F7",
+        "editorBracketHighlight.foreground2": "#9ECE6A",
+        "editorBracketHighlight.foreground3": "#FF9E64",
+        "editorBracketHighlight.foreground4": "#BB9AF7",
+        "editorError.foreground": "#FF5555",
+        "editorWarning.foreground": "#FFAA00",
+        "diffEditor.insertedTextBackground": "#9ECE6A33",
+        "diffEditor.removedTextBackground": "#FF555533",
+        "editor.lineNumberForeground": "#7AA2F7",
+        "editor.activeLineNumberForeground": "#BB9AF7",
+        "editor.bracketMatchBackground": "#2f426688",
+        "editor.bracketMatchBorder": "#7AA2F7"
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "comment",
+                    "punctuation.definition.comment"
+                ],
+                "settings": {
+                    "foreground": "#55FF88",
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": [
+                    "comment.todo",
+                    "comment.keyword",
+                    "comment.line.todo"
+                ],
+                "settings": {
+                    "foreground": "#FFAA00",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": [
+                    "keyword",
+                    "keyword.control",
+                    "keyword.operator",
+                    "storage.type",
+                    "storage.modifier"
+                ],
+                "settings": {
+                    "foreground": "#BB9AF7",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": [
+                    "string",
+                    "string.interpolated",
+                    "string.template"
+                ],
+                "settings": {
+                    "foreground": "#9ECE6A"
+                }
+            },
+            {
+                "scope": [
+                    "constant",
+                    "constant.numeric",
+                    "constant.language",
+                    "constant.character"
+                ],
+                "settings": {
+                    "foreground": "#FF9E64"
+                }
+            },
+            {
+                "scope": [
+                    "entity.name.function",
+                    "meta.function-call",
+                    "meta.method-call"
+                ],
+                "settings": {
+                    "foreground": "#7AA2F7",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "variable.parameter",
+                    "meta.function.parameters"
+                ],
+                "settings": {
+                    "foreground": "#E0AF68"
+                }
+            },
+            {
+                "scope": [
+                    "variable",
+                    "entity.name.variable",
+                    "variable.other",
+                    "variable.language"
+                ],
+                "settings": {
+                    "foreground": "#C0CAF5"
+                }
+            },
+            {
+                "scope": [
+                    "support.type",
+                    "entity.name.type",
+                    "support.class"
+                ],
+                "settings": {
+                    "foreground": "#7DCFFF",
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": [
+                    "meta.object-literal.key",
+                    "meta.object.member",
+                    "support.constant.property-value"
+                ],
+                "settings": {
+                    "foreground": "#73DACA"
+                }
+            },
+            {
+                "scope": [
+                    "string.regexp",
+                    "constant.regexp",
+                    "source.regexp",
+                    "punctuation.definition.group.regexp"
+                ],
+                "settings": {
+                    "foreground": "#B4F9F8"
+                }
+            },
+            {
+                "scope": [
+                    "keyword.other.import",
+                    "keyword.control.import",
+                    "keyword.other.export"
+                ],
+                "settings": {
+                    "foreground": "#7DCFFF",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": [
+                    "invalid"
+                ],
+                "settings": {
+                    "foreground": "#FF5555",
+                    "fontStyle": "underline"
+                }
+            }
+        ]
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.guides.bracketPairsHorizontal": "active",
+    "editor.fontFamily": "consolas",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.8,
+    "editor.letterSpacing": 0.3,
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "smooth",
+    "editor.renderWhitespace": "boundary",
+    "editor.renderControlCharacters": false,
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": "singleFile",
+    "editor.smoothScrolling": true,
+    "editor.parameterHints.enabled": true,
+    "editor.suggest.preview": true,
+    "editor.fontLigatures": true,
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.codeLens": false,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.lineNumbers": "relative",
+    "editor.folding": true,
+    "editor.foldingStrategy": "indentation",
+    "editor.matchBrackets": "always",
+    "editor.stickyScroll.enabled": true,
+    "editor.guides.indentation": true,
+    "debug.inlineValues": true,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "right"
+    },
+    "notebook.consolidatedOutputButton": true,
+    "notebook.showCellStatusBar": true,
+    "terminal.integrated.fontFamily": "consolas",
+    "terminal.integrated.cursorBlinking": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.organizeImports": true
+    },
+    "workbench.editor.focusRecentEditorAfterClose": false,
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[powershell]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[sql]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[vb]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[cpp]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[c]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[pascal]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "[swift]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[objc]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "[html]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    }
+}
