@@ -1,0 +1,135 @@
+Option Explicit
+
+Sub ConvertSelectedRangeToJsonAndCopyToClipboard()
+
+    Dim wb As Workbook
+    Dim ws As Worksheet
+    Dim sel As Range
+    Dim json As String
+    Dim rowIndex As Long, colIndex As Long
+    Dim headers() As String
+    Dim dataRow As Variant
+    Dim isFirstRow As Boolean
+    Dim cellValue As Variant
+    Dim escapedValue As String
+    
+    On Error GoTo ErrorHandler
+    
+    ' Set active workbook and sheet
+    Set wb = ActiveWorkbook
+    Set ws = ActiveSheet
+    
+    If wb Is Nothing Or UCase(wb.Name) Like "*PERSONAL.XLS*" Then
+        MsgBox "This macro cannot run on the personal macro workbook. Please select a range in a visible workbook.", vbExclamation
+        Exit Sub
+    End If
+    
+    If ws Is Nothing Then
+        MsgBox "No active sheet available.", vbExclamation
+        Exit Sub
+    End If
+    
+    ' Get the selected range
+    Set sel = Selection
+    If sel Is Nothing Or sel.Cells.Count = 0 Then
+        MsgBox "No range selected.", vbExclamation
+        Exit Sub
+    End If
+    
+    json = "{"
+    json = json & """workbook"":""" & EscapeJsonString(wb.Name) & ""","
+    json = json & """worksheet"":""" & EscapeJsonString(ws.Name) & ""","
+    json = json & """data"":" 
+    
+    Dim hasHeaders As Boolean
+    hasHeaders = (sel.Rows.Count > 1)
+    
+    If hasHeaders Then
+        ' Extract headers
+        ReDim headers(1 To sel.Columns.Count)
+        For colIndex = 1 To sel.Columns.Count
+            headers(colIndex) = EscapeJsonString(CStr(sel.Cells(1, colIndex).Value))
+        Next colIndex
+        
+        json = json & "["
+        isFirstRow = True
+        
+        For rowIndex = 2 To sel.Rows.Count
+            If Not isFirstRow Then json = json & ","
+            json = json & "{"
+            For colIndex = 1 To sel.Columns.Count
+                If colIndex > 1 Then json = json & ","
+                cellValue = sel.Cells(rowIndex, colIndex).Value
+                escapedValue = FormatJsonValue(cellValue)
+                json = json & """" & headers(colIndex) & """:" & escapedValue
+            Next colIndex
+            json = json & "}"
+            isFirstRow = False
+        Next rowIndex
+        json = json & "]"
+        
+    Else
+        json = json & "["
+        isFirstRow = True
+        For rowIndex = 1 To sel.Rows.Count
+            If Not isFirstRow Then json = json & ","
+            json = json & "["
+            For colIndex = 1 To sel.Columns.Count
+                If colIndex > 1 Then json = json & ","
+                cellValue = sel.Cells(rowIndex, colIndex).Value
+                escapedValue = FormatJsonValue(cellValue)
+                json = json & escapedValue
+            Next colIndex
+            json = json & "]"
+            isFirstRow = False
+        Next rowIndex
+        json = json & "]"
+    End If
+    
+    json = json & "}"
+    
+    Dim clipboard As Object
+    Set clipboard = CreateObject("new:{1C3B4210-F441-11CE-B9EA-00AA006B1A69}") ' MSForms.DataObject
+    clipboard.SetText json
+    clipboard.PutInClipboard
+    
+    MsgBox "JSON (including workbook and worksheet metadata) copied to clipboard:" & vbNewLine & json, vbInformation
+    
+Cleanup:
+    Set wb = Nothing
+    Set ws = Nothing
+    Set sel = Nothing
+    Set clipboard = Nothing
+    Exit Sub
+
+ErrorHandler:
+    MsgBox "An error occurred: " & Err.Description, vbCritical
+    Resume Cleanup
+End Sub
+
+Private Function EscapeJsonString(ByVal str As String) As String
+    ' Escape special characters for JSON strings
+    str = Replace(str, "\", "\\")
+    str = Replace(str, """", "\""")
+    str = Replace(str, "/", "\/")
+    str = Replace(str, vbBack, "\b")
+    str = Replace(str, vbFormFeed, "\f")
+    str = Replace(str, vbLf, "\n")
+    str = Replace(str, vbCr, "\r")
+    str = Replace(str, vbTab, "\t")
+    EscapeJsonString = str
+End Function
+
+Private Function FormatJsonValue(ByVal val As Variant) As String
+    If IsNull(val) Then
+        FormatJsonValue = "null"
+    ElseIf VarType(val) = vbBoolean Then
+        FormatJsonValue = IIf(val, "true", "false")
+    ElseIf IsNumeric(val) Then
+        FormatJsonValue = CStr(val)
+    ElseIf IsDate(val) Then
+        FormatJsonValue = """" & Format(val, "yyyy-mm-dd hh:nn:ss") & """"
+    Else
+        FormatJsonValue = """" & EscapeJsonString(CStr(val)) & """"
+    End If
+End Function
