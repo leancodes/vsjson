@@ -192,7 +192,7 @@
     "editor.letterSpacing": 0.3,
     "editor.cursorStyle": "block",
     "editor.cursorBlinking": "smooth",
-    "editor.renderWhitespace": "boundary",
+    "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": false,
     "editor.minimap.enabled": false,
     "editor.occurrencesHighlight": "singleFile",
@@ -201,7 +201,7 @@
     "editor.suggest.preview": true,
     "editor.fontLigatures": true,
     "editor.formatOnType": false,
-    "editor.formatOnPaste": false,
+    "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
     "editor.tabSize": 4,
@@ -216,6 +216,10 @@
     "editor.matchBrackets": "always",
     "editor.stickyScroll.enabled": true,
     "editor.guides.indentation": true,
+    "editor.detectIndentation": false,
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 80,
+    "editor.linkedEditing": true,
     "debug.inlineValues": true,
     "notebook.cellToolbarLocation": {
         "default": "right",
@@ -269,5 +273,22 @@
     "[html]": {
         "editor.tabSize": 2,
         "editor.insertSpaces": true
-    }
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "files.exclude": {
+        "/node_modules": true,
+        "/bower_components": true,
+        "/.git": true,
+        "/.DS_Store": true
+    },
+    "search.exclude": {
+        "/node_modules": true,
+        "/bower_components": true,
+        "**/.git": true
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
 }
+
